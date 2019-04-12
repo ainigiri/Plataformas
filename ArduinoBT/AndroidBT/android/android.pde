@@ -10,6 +10,7 @@ KetaiList klist;
 boolean isConfiguring = true;
 boolean rectOver = false;
 boolean bReleased = true;
+boolean btReceived = false;
 int rec = 0;
 PFont myFont;
 String info = "";
@@ -47,12 +48,24 @@ void draw(){
     
     update(mouseX, mouseY);
     background(45,12,137);
+    if(btReceived){
+      a = color(0);
+      b = color(0);
+      c = color(0);
+      d = color(0);
+      e = color(0);
+      f = color(0);
+      g = color(0);
+      h = color(0);
+      btReceived = false;
+    }
     if(mousePressed && rectOver){
       switch(rec){
         case 1:
           c = color(10,237,26);
           if(bReleased){
-            data[0] = 's';      
+            data[0] = 's';
+            println("s");
             bt.broadcast(data); 
             bReleased = false; 
           }
@@ -60,7 +73,9 @@ void draw(){
         case 2:
           d = color(10,237,26);
           if(bReleased){
-            data[0] = 'w';      
+            data[0] = 'w';  
+                        println("w");
+
             bt.broadcast(data); 
             bReleased = false; 
           }
@@ -68,7 +83,9 @@ void draw(){
         case 3:
           a = color(10,237,26);
           if(bReleased){
-            data[0] = 'a';      
+            data[0] = 'a'; 
+                        println("a");
+
             bt.broadcast(data); 
             bReleased = false; 
           }
@@ -76,7 +93,9 @@ void draw(){
         case 4:
           b = color(10,237,26);
           if(bReleased){
-            data[0] = 'd';      
+            data[0] = 'd'; 
+                        println("d");
+
             bt.broadcast(data); 
             bReleased = false; 
           }
@@ -84,7 +103,9 @@ void draw(){
         case 5:
           j = color(74,182,252);
           if(bReleased){
-            data[0] = 'l';      
+            data[0] = 'l';   
+                        println("l");
+
             bt.broadcast(data); 
             bReleased = false; 
           }
@@ -92,7 +113,9 @@ void draw(){
         case 6:
           k = color(74,182,252);
           if(bReleased){
-            data[0] = 'k';      
+            data[0] = 'k';     
+                        println("k");
+
             bt.broadcast(data); 
             bReleased = false; 
           }
@@ -100,7 +123,9 @@ void draw(){
         case 7:
           e = color(10,237,26);
           if(bReleased){
-            data[0] = 'q';      
+            data[0] = 'q';  
+                        println("q");
+
             bt.broadcast(data); 
             bReleased = false; 
           }
@@ -108,7 +133,9 @@ void draw(){
         case 8:
           f = color(10,237,26);
           if(bReleased){
-            data[0] = 'e';      
+            data[0] = 'e';   
+                        println("e");
+
             bt.broadcast(data); 
             bReleased = false; 
           }
@@ -116,7 +143,8 @@ void draw(){
         case 9:
           g = color(10,237,26);
           if(bReleased){
-            data[0] = 'z';      
+            data[0] = 'z';              println("z");
+    
             bt.broadcast(data); 
             bReleased = false; 
           }
@@ -124,7 +152,9 @@ void draw(){
         case 10:
           h = color(10,237,26);
           if(bReleased){
-            data[0] = 'c';      
+            data[0] = 'c'; 
+                        println("c");
+
             bt.broadcast(data); 
             bReleased = false; 
           }
@@ -132,7 +162,8 @@ void draw(){
         case 11:
           l = color(255,255,255);
           if(bReleased){
-            data[0] = 't';      
+            data[0] = 't';                println("t");
+  
             bt.broadcast(data); 
             bReleased = false; 
           }

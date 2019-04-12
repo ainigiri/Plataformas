@@ -20,8 +20,28 @@ void onKetaiListSelection(KetaiList klist)
 //Call back method to manage data received
 void onBluetoothDataEvent(String who, byte[] data)
 {
-  if (isConfiguring) return;      //received
-  info += new String(data);
-  if(info.length() > 150)             //clean the words on screen if string to long
-  info = "";
+  int val = 0;
+  if (isConfiguring) {
+    return;
+  }
+
+  if (data != null){
+     String in = new String(data);
+     if (in.charAt(0) != ' '){
+       String sub_in = in.substring(0, in.length() - 2);
+       val = Integer.valueOf(sub_in);
+       print("Value in integer: ");
+       print(val);
+       println();
+     }
+     if(val == 123){
+       btReceived = true;
+     }
+     else{
+       btReceived = false;
+     }
+  }
+  
+  info = String.valueOf(val);
+  print("Converted into string again: " + info);
 }
