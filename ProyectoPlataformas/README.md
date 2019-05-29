@@ -8,6 +8,6 @@ El IDE de processing fue utilizado para realizar el código del proyecto, en est
 eye tribe.
 
 ## Proyecto Final
-El proyecto consiste en un generado de mapas de calor en vase al punto de la pantalla donde se fije la vista, esto permite tener un
+El proyecto consiste en un generado de mapas de calor en base al punto de la pantalla donde se fije la vista, esto permite tener un
 seguimiento de los puntos más importantes donde se fija la vista, esto resulta de gran utilidad para llevar un seguimiento de
 el área donde se enfoca la vista de un conductor y saber si se está enfocando en áreas importantes o si este se está distrayendo.

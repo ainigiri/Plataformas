@@ -5,8 +5,10 @@ import java.util.Map;
 import java.util.Collections;
 import P5ireBase.library.*;
 
+//Rango de colores para generar el mapa de calor
 final color MINCOL=color(255, 10, 10);
 final color MAXCOL=color(10, 10, 255);
+
 EyeTribe eyeTribe;
 P5ireBase fireLeft;
 P5ireBase fireRight;
@@ -22,9 +24,11 @@ int calibrating = 1;
 int calibrationPointInterval = 300;
 int calibrationDuration = 1200;
 int calibrationStart = 0;
+//Filas y columnas para la malla del mapa de calor
 int rows = 20;
 int cols = 20;
 
+//malla donde se almacena que tanto se esta mirando un punto
 float grid[][];
 
 String calibrationResult = "Hit space to start calibration.";
@@ -33,7 +37,7 @@ void setup(){
   fullScreen();
   img = loadImage("car.png");
   smooth();
-  
+
   tracking = new ArrayList<PVector>();
   grid = new float[rows][cols];
   point = new PVector();

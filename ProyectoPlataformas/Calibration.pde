@@ -1,3 +1,4 @@
+//Métodos obtenidos de los ejemplos de processing
 synchronized void calibratingPoint(PVector p, boolean start){
   if(start){
     println("Calibrating point: " + p);
@@ -20,6 +21,7 @@ void calibrationEnded(boolean result, double acc, double accRight, double accLef
   }
 }
 
+//Este metodo se manda a llamar cada que se recibe un cambio en la mirada
 synchronized void onGazeUpdate(PVector gaze, PVector leftEye_, PVector rightEye_, GazeData data) {
   //println(eyeTribe.isTracking() + " " + eyeTribe.isTrackingGaze() + " " + eyeTribe.isTrackingEyes() + " " + data.stateToString());
   if ( gaze != null ) {
@@ -32,7 +34,7 @@ synchronized void onGazeUpdate(PVector gaze, PVector leftEye_, PVector rightEye_
       point = gaze.get();
       int x = (int)constrain(round(map(point.x, 0, width, 0, cols-1)), 0, cols-1);
       int y = (int)constrain(round(map(point.y, 0, height, 0, rows-1)), 0, rows-1);
-      
+
       grid[y][x] = constrain(grid[y][x]+10, 0, 255);
     }
   }
@@ -62,10 +64,13 @@ String rate(double accuracy) {
   return "Calibration Quality: REDO";
 }
 
+//método para desplegar datos en la pantalla en base a si se está calibrando el sensor
+// o si se está utilizando el mapa de calor
 void checkCalibrationStatus(){
+	//utilizando el mapa de calor
   if(calibrating == 0){
     startHeatMaps();
-  }else if (calibrating == 1){
+  }else if (calibrating == 1){ //comenzando a calibrar
     if ( leftEye != null ) {
       fill(255);
       stroke(0);
@@ -91,7 +96,7 @@ void checkCalibrationStatus(){
     noFill();
     stroke(255, 0, 0);
     ellipse(point.x, point.y, 30, 30);
-    
+
     if ( tracking.size() > 1) {
       for (int i = 1; i < tracking.size (); i++ ) {
         stroke(map(i, 1, tracking.size(), 0, 255));
@@ -102,8 +107,8 @@ void checkCalibrationStatus(){
     }
     fill(255);
     text("Hit space again, and follow the circles...", width/2-textWidth("Hit space again, and follow the circles...")/2, height/2);
-    calibrationResult = "";  
-  } else{
+    calibrationResult = "";
+  } else{//Iniciando calibración
     if (calibratingPoint != null){
       fill(255);
       noStroke();
@@ -114,11 +119,12 @@ void checkCalibrationStatus(){
       ellipse(calibratingPoint.x, calibratingPoint.y, s, s);
     }
   }
-  
+
   fill(255);
   text(calibrationResult, 100, height-100);
 }
 
+//método para establecer los puntos con los que se realizará la calibracion
 void initializeCalibration(){
     calibrating++;
     if(calibrating > 2) calibrating = 0;
