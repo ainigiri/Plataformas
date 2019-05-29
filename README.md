@@ -1,4 +1,4 @@
-# Pataformas
+# Desarrollo Basado en Plataformas
 Equipo:
 * Jorge Luis Castillo Armendariz 310883
 * Eduardo Evora Cabrera 310924
